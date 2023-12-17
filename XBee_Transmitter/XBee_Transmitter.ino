@@ -4,7 +4,9 @@
 #include "SoftwareSerial.h"
 /******************************************************************************************************************************************************************************/
 /* Global Variable Declaration for XBee */
-String data = "";  // Data to be sent in the format of String
+// Data to be sent in the format of String
+String data = "";
+// Do we want the data in inches 
 bool getInch = false;
 // For XBee RX and TX using SoftwareSerial
 const uint8_t rxPin = 2;
@@ -28,6 +30,7 @@ SoftwareSerial mySerial(rxPin, txPin);
 /* Function Declaration */
 float get_distance(bool returnInch);
 void sep(int a);
+void send_cal_val(uint16_t delay);
 /******************************************************************************************************************************************************************************/
 /* Function definition */
 float get_distance(bool returnInch) {  // a represents the return value in inches or not
@@ -54,6 +57,11 @@ float get_distance(bool returnInch) {  // a represents the return value in inche
     // Serial.println("Dist = " + String(dist) + "cm");
   }
   return dist;
+}
+/******************************************************************************************************************************************************************************/
+/* Function for sending the averaged value */
+void send_cal_val(uint16_t delay){
+
 }
 /******************************************************************************************************************************************************************************/
 /* Function for better display on Serial Monitor */
